@@ -136,10 +136,10 @@ jobs:
       run: |
         echo "IMAGE_TAGS=latest ${GITHUB_SHA::12}" | tee -a $GITHUB_ENV
 
-    - uses: actions/checkout@v2
-    - uses: actions/download-artifact@v1
     - name: Build from Dockerfile
       id: build-image
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v1
       with:
           name: jar-artifact
           path: target/
